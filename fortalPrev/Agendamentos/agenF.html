@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--Botar Ids e classes ao estudar CSS-->
+<html>
+    <head>
+        <title>
+            Agendamentos
+        </title>
+        <style type="text/css">
+            body{
+                background-color: rgba(95, 158, 160, 0.8);
+            }
+            p{
+                color:rgb(108, 7, 7);
+                font-size: 16px;
+            }
+            #DadosCadastrais{
+                background-color:burlywood;
+                
+            }
+            .T{
+                color:brown;
+                font-family: Georgia, Times, serif;
+                font-size:16px;
+            }
+            h1{
+                text-align: center;
+                font-size: 32px;
+                font-family:'Courier New', Courier, monospace;
+                font-weight: normal;
+                font-style: oblique;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>
+        Agendamentos 
+        </h1>
+        <form action="form.php" name="Agendamento Passeio Livre" method="post">
+            <fieldset id="DadosCadastrais">
+                <legend class="T">Dados de cadastro</legend>
+                <label class="T">Coloque seu nome completo : <input type="text" maxlength="40" required="required"/></label><br /><br />
+                <label class="T"> Coloque sua data de nascimento : <input type="date" name="Data de nascimento" required="required"/></label><br /><br />
+                <label class="T">Coloque seu hotel : <input name="hotel" type="text" required="required"/></label><br /><br />
+                <label class="T">Coloque uma senha para verificação : <input type="password" name="senha" required="required" /></label><br /><br />
+                <label class="T">Coloque seu email : <input type="email" name="email" required="required"/></label><br /><br />
+                <label class="T">Qual paseeio deseja fazer ? <input type="radio" name="passeio" value="guiado" /> Guiado 
+                    <input type="radio" name="passeio" value="livre" /> Livre </label> <br /><br />
+                
+            </fieldset>
+            <!--Parte necessaria de preenchimento acima, e facultativa abaixo-->
+            <p>
+                Se deseja um passeio Guiado, qual rota deseja ? <input type="checkbox" name="rota" value="R1" /> Rota1 
+                <input type="checkbox" name="rota" value="R2" /> Rota2 <input type="checkbox" name="nenhum" value="nenhuma" /> Vou fazer o paseio livre
+            </p>
+
+            
+            <p> Quantidade de bicicletas : </p> 
+            <select name="quantidade" required="required">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="mais">mais de 6</option>
+            </select>
+            
+            <p>
+                Faça uma descrição do pedido: <br />
+                <textarea name="descrição" id="1" cols="30" rows="10"> Oque você gostaria que soubessemos ? Ex: criança de 10 anos de altura 1,30 bike de 4 ...</textarea>
+            </p>
+            <input type="submit" name="botao" value="Submit" />
+        </form>
+        
+        <h3>
+            <a href="../index.html">Voltar</a>
+        </h3>
+    </body>
+</html>
