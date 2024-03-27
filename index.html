@@ -6,26 +6,27 @@
     <meta http-equiv="author" content="Daniel Carlos" />
     <style type="text/css">
         body{
-            background-color: black;
+            background-color: #34344e;
             height: 930px;
+            margin: 0;
+            padding: 0;
         }
         p{
             text-align: center;
             padding: 6px;
             margin: 1px;
-            color:burlywood;
+            color: #cbdad5;
         }
         h1, h2{
-            color:bisque;
+            color: #cbdad5;
         }
-        div.principal{
+        .principal{
             display: grid;
             width: 98%;
             margin: 0 auto;
             height: 100%;
             grid-template-columns: 75% 25%;
             grid-template-rows: 90px 70px 500px 180px 365px;
-            grid-template-columns: 60% 40%;
             grid-template-areas:"title title"
                                 "info info"
                                 "content logo"
@@ -33,62 +34,75 @@
                                 "contato foto";
             
         }
-        div.title{
+        .title{
             grid-area: title;
-            color: bisque;
+            color: #cbdad5;
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-size:large;
             text-align: center;
         }
-        div.info{
+        .info{
             grid-area: info;
-            
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        div.content{
+        .content{
             grid-area: content;
             text-align: center;
             width: 100%;
             height: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        div.logo{
+        .logo{
             grid-area: logo;
             text-align: center;
         }
-        div.publics{
+        .publics{
             grid-area: publics;
             padding-top: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        div.contato{
+        .contato{
             grid-area: contato;
             margin-top: 10px;
-            
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        div.foto{
+        .foto{
             grid-area: foto;
             margin-top: 40px;
             text-align: center;
-            border-left-color: bisque;
+            border-left-color: #cbdad5;
             border-width:medium;
             border-style: solid;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        div.box1{
-            border-color: bisque gray bisque gray;
+        .box1{
+            border-color: #cbdad5 #566981 #cbdad5 #566981;
             border-width:medium;
             border-style: solid;
             margin-bottom: 20px;
             height: 70%;
             width: 100%;
         }
-        div.box2{
-            border-color: bisque gray bisque gray;
+        .box2{
+            border-color: #cbdad5 #566981 #cbdad5 #566981;
             border-width:medium;
             border-style: solid;
             margin-top: 10px;
             height: 27.5%;
             width: 100%;
         }
-        div.box3{
-            border-color:bisque;
+        .box3{
+            border-color: #cbdad5;
             border-width:medium;
             border-style: solid;
             margin-left: 0px;
@@ -96,7 +110,7 @@
             height: 90%;
         }
         #inf{
-            border-color: gray;
+            border-color: #cbdad5;
             border-style: solid;
             border-width: medium;
         }
@@ -105,13 +119,13 @@
             text-align: left;
             padding: 6px;
             margin: 10px;
-            color:burlywood;
+            color: #cbdad5;
         }
         #nam2{
             text-align: left;
             padding: 6px;
             margin: 10px;
-            color:bisque;
+            color: #cbdad5;
         }
         
     </style>
@@ -136,10 +150,11 @@
                 </h2>
                 <p>
                     Aqui estão uma amostra dos seus trabalhos desenvolvidos mediante vários contextos. Durante as férias de fim de ano de 2022, Daniel idealizou e 
-                    concretizou a empresa Fortal Sob Rodas. Essa empresa oferece 2 categorias de passeios, assím ajudando turistas a aproveitarem a orla de Fortaleza.
+                    concretizou a empresa Fortal Sob Rodas. Essa empresa oferece 2 categorias de passeios, assim ajudando turistas a aproveitarem a orla de Fortaleza.
                     Aqui está uma prévia do site feito para a empresa. <a href="fortalPrev/index.html" class="linkGold"> Site da fortal sob rodas.</a> Também toma parte
-                    na equipe de desenvolvimento de drones da USP a SkyRats. Além disso, atualmente constroi uma biblioteca que visa automatizar vários dos processos 
-                    demandados nas matérias de física experimental no IFUSP e demais universidades. Atualmente é aluno de IC no IFT UNESP orientado pelo professor Bruto
+                    na equipe de desenvolvimento de drones da USP a SkyRats. Além disso, atualmente constrói uma biblioteca que visa automatizar vários dos processos 
+                    demandados nas matérias de física experimental no IF
+                    USP e demais universidades. Atualmente é aluno de IC no IFT UNESP orientado pelo professor Bruto
                     Max Pimentel.
                 </p>
             </div>
@@ -148,7 +163,7 @@
                     Materiais
                 </h2>
                 <p>
-                    Aqui estarão alguns materias de estudo desenvolvidos por ele e colaboradores durante sua trajetória acadêmica.
+                    Aqui estarão alguns materiais de estudo desenvolvidos por ele e colaboradores durante sua trajetória acadêmica.
                 </p>
             </div>
         </div>
@@ -171,17 +186,43 @@
                 Contato
             </h2>
             <p id="nam">
-                Para entrar em contato basta entrar no linkedn e, ao conectar, mandar mensagem. Informações atualizadas em 23/03/2024
+                Para entrar em contato basta entrar no LinkedIn e, ao conectar, mandar mensagem. Informações atualizadas em 23/03/2024
             </p>
-            <p> <a href="https://br.linkedin.com/in/daniel-carlos-souza-santos-4b25bb238?trk=public_profile_browsemap">Linkedn</a></p>
-            <p>Email : danielcarlosss12@icloud.com</p>
-            <p> Git Hub : https://github.com/DanielDCSS </p>
-            
+            <p> <a href="https://br.linkedin.com/in/daniel-carlos-souza-santos-4b25bb238?trk=public_profile_browsemap">
+                <a href="https://br.linkedin.com/in/daniel-carlos-souza-santos-4b25bb238?trk=public_profile_browsemap">LinkedIn</a></p>
+                <p>Email : danielcarlosss12@icloud.com</p>
+                <p> Git Hub : https://github.com/DanielDCSS </p>
+                
+            </div> <!-- Fechamento da div contato -->
+    
+            <div class="foto">
+                <img src="imags/IMG_3439.JPG" width="238,5" height="318" />
+            </div>
+    
         </div>
-        <div class="foto">
-            <img src="imags/IMG_3439.JPG" width="238,5" height="318" />
-        </div>
-
-    </div>
-</body>
+        <script>
+            window.onload = function() {
+                setTimeout(function() {
+                    document.querySelector('.info').style.opacity = '1';
+                    document.querySelector('.info').style.transform = 'translateY(0)';
+                }, 400);
+                setTimeout(function() {
+                    document.querySelector('.content').style.opacity = '1';
+                    document.querySelector('.content').style.transform = 'translateY(0)';
+                }, 600);
+                setTimeout(function() {
+                    document.querySelector('.publics').style.opacity = '1';
+                    document.querySelector('.publics').style.transform = 'translateY(0)';
+                }, 800);
+                setTimeout(function() {
+                    document.querySelector('.contato').style.opacity = '1';
+                    document.querySelector('.contato').style.transform = 'translateY(0)';
+                }, 1000);
+                setTimeout(function() {
+                    document.querySelector('.foto').style.opacity = '1';
+                    document.querySelector('.foto').style.transform = 'translateY(0)';
+                }, 1200);
+            };
+        </script>
+    </body>
 </html>
