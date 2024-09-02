@@ -1,232 +1,235 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Site pessoal</title>
-    <meta http-equiv="author" content="Daniel Carlos" />
-    <style type="text/css">
-        body{
-            background-color: #34344e;
-            height: 930px;
-            margin: 0;
-            padding: 0;
-        }
-        p{
-            text-align: center;
-            padding: 6px;
-            margin: 1px;
-            color: #cbdad5;
-        }
-        h1, h2{
-            color: #cbdad5;
-        }
-        .principal{
-            display: grid;
-            width: 98%;
-            margin: 0 auto;
-            height: 100%;
-            grid-template-columns: 75% 25%;
-            grid-template-rows: 90px 70px 500px 180px 365px;
-            grid-template-areas:"title title"
-                                "info info"
-                                "content logo"
-                                "publics publics"
-                                "contato foto";
-            
-        }
-        .title{
-            grid-area: title;
-            color: #cbdad5;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size:large;
-            text-align: center;
-        }
-        .info{
-            grid-area: info;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .content{
-            grid-area: content;
-            text-align: center;
-            width: 100%;
-            height: auto;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .logo{
-            grid-area: logo;
-            text-align: center;
-        }
-        .publics{
-            grid-area: publics;
-            padding-top: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .contato{
-            grid-area: contato;
-            margin-top: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .foto{
-            grid-area: foto;
-            margin-top: 40px;
-            text-align: center;
-            border-left-color: #cbdad5;
-            border-width:medium;
-            border-style: solid;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .box1{
-            border-color: #cbdad5 #566981 #cbdad5 #566981;
-            border-width:medium;
-            border-style: solid;
-            margin-bottom: 20px;
-            height: 70%;
-            width: 100%;
-        }
-        .box2{
-            border-color: #cbdad5 #566981 #cbdad5 #566981;
-            border-width:medium;
-            border-style: solid;
-            margin-top: 10px;
-            height: 27.5%;
-            width: 100%;
-        }
-        .box3{
-            border-color: #cbdad5;
-            border-width:medium;
-            border-style: solid;
-            margin-left: 0px;
-            margin-top: 30px;
-            height: 90%;
-        }
-        #inf{
-            border-color: #cbdad5;
-            border-style: solid;
-            border-width: medium;
-        }
-        
-        #nam{
-            text-align: left;
-            padding: 6px;
-            margin: 10px;
-            color: #cbdad5;
-        }
-        #nam2{
-            text-align: left;
-            padding: 6px;
-            margin: 10px;
-            color: #cbdad5;
-        }
-        
-    </style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Daniel Carlos personal website</title>
+   <link rel="stylesheet" href="styles.css">
+   <style>
+    * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+    }
+
+    body {
+       font-family: Arial, sans-serif;
+       background-color: #101010;
+       color: #ffffff;
+       line-height: 1.6;
+       overflow-x: hidden;
+    }
+
+    .container {
+       max-width: 1000px;
+       margin: 0 auto;
+       padding: 20px;
+    }
+
+    header {
+       text-align: center;
+       margin-bottom: 40px;
+       opacity: 0;
+       transform: translateY(-20px);
+       animation: fadeInUp 1s forwards;
+       animation-delay: 0.5s;
+    }
+
+    header h1 {
+       font-size: 3em;
+       color: #00bcd4;
+    }
+
+    header p {
+       font-size: 1.2em;
+       color: #999;
+    }
+
+    .intro {
+       display: flex;
+       align-items: center;
+       gap: 20px;
+       margin-bottom: 40px;
+       opacity: 0;
+       transform: translateY(-20px);
+       animation: fadeInUp 1s forwards;
+       animation-delay: 1s;
+    }
+
+    .profile-pic {
+       border-radius: 10%;
+       width: 170px;
+       height: 200px;
+    }
+
+    .intro p {
+       flex: 1;
+    }
+
+    ul {
+       list-style: none;
+    }
+
+    ul li {
+       margin-bottom: 10px;
+    }
+
+    a {
+       color: #00bcd4;
+       text-decoration: none;
+    }
+
+    a:hover {
+       text-decoration: underline;
+    }
+
+    p {
+        opacity: 0;
+        transform: translateY(-20px);
+       animation: fadeInUp 1s forwards;
+       animation-delay: 0.5s;
+    }
+
+    .latest-posts,
+    .publications,
+    .contact {
+       margin-bottom: 40px;
+       opacity: 0;
+       transform: translateY(-20px);
+       animation: fadeInUp 1s forwards;
+    }
+
+    .latest-posts {
+       animation-delay: 1.5s;
+    }
+
+    .publications {
+       animation-delay: 2s;
+    }
+
+    .contact {
+       animation-delay: 2.5s;
+    }
+
+    h2 {
+       margin-bottom: 20px;
+       color: #ffffff;
+    }
+
+    .latest-posts ul li,
+    .publications ul li {
+       margin-bottom: 15px;
+       font-size: 1.1em;
+    }
+
+    .contact h2 {
+       margin-bottom: 20px;
+       color: #ffffff;
+    }
+
+    .contact form {
+       display: grid;
+       gap: 15px;
+    }
+
+    .contact label {
+       font-weight: bold;
+    }
+
+    .contact input,
+    .contact textarea {
+       width: 100%;
+       padding: 10px;
+       border: 1px solid #00bcd4;
+       border-radius: 5px;
+       background-color: #202020;
+       color: #ffffff;
+    }
+
+    .contact button {
+       padding: 10px 20px;
+       border: none;
+       border-radius: 5px;
+       background-color: #00bcd4;
+       color: #ffffff;
+       font-size: 1em;
+       cursor: pointer;
+    }
+
+    .contact button:hover {
+       background-color: #0097a7;
+    }
+
+    @keyframes fadeInUp {
+       from {
+           opacity: 0;
+           transform: translateY(20px);
+       }
+       to {
+           opacity: 1;
+           transform: translateY(0);
+       }
+    }
+   </style>
 </head>
 <body>
-    <div class="principal">
-        <div class="title">
-            <h1>
-                Daniel Carlos Souza Santos
-            </h1>
-        </div>
-        <div class="info">
-            <p id="inf">
-                Daniel Carlos Souza Santos é estudante de física da USP, completou um estágio na área de infraestrutura em linux e gestão de dados
-                na escola politécnica da USP. Atualmente presta serviços de freelancer na área de desenvolvimento mobile. 
-            </p>
-        </div>
-        <div class="content">
-            <div class="box1">
-                <h2>
-                    Trabalhos
-                </h2>
-                <p>
-                    Aqui estão uma amostra dos seus trabalhos desenvolvidos mediante vários contextos. Durante as férias de fim de ano de 2022, Daniel idealizou e 
-                    concretizou a empresa Fortal Sob Rodas. Essa empresa oferece 2 categorias de passeios, assim ajudando turistas a aproveitarem a orla de Fortaleza.
-                    Aqui está uma prévia do site feito para a empresa. <a href="fortalPrev/index.html" class="linkGold"> Site da fortal sob rodas.</a> Também toma parte
-                    na equipe de desenvolvimento de drones da USP a SkyRats. Além disso, atualmente constrói uma biblioteca que visa automatizar vários dos processos 
-                    demandados nas matérias de física experimental no IF
-                    USP e demais universidades. Atualmente é aluno de IC no IFT UNESP orientado pelo professor Bruto
-                    Max Pimentel.
-                </p>
-            </div>
-            <div class="box2">
-                <h2>
-                    Materiais
-                </h2>
-                <p>
-                    Aqui estarão alguns materiais de estudo desenvolvidos por ele e colaboradores durante sua trajetória acadêmica.
-                </p>
-            </div>
-        </div>
-        <div class="logo">
-            <img src="imags/LogoPessoal.png" alt="Logo" title="Logomarca" width="450" height="450" /> 
-        </div>
-        <div class="publics">
-            <div class="box3">
-                <h2 id="nam2">
-                    Publicações
-                </h2>
-                <p id="nam">
-                    Estão para sair publicações.
-                </p>
-            </div>
-    
-        </div>
-        <div class="contato">
-            <h2 id="nam2">
-                Contato
-            </h2>
-            <p id="nam">
-                Para entrar em contato basta entrar no LinkedIn e, ao conectar, mandar mensagem. Informações atualizadas em 23/03/2024
-            </p>
-            <p> <a href="https://br.linkedin.com/in/daniel-carlos-souza-santos-4b25bb238?trk=public_profile_browsemap">
-                <a href="https://br.linkedin.com/in/daniel-carlos-souza-santos-4b25bb238?trk=public_profile_browsemap">LinkedIn</a></p>
-                <p>Email : danielcarlosss12@icloud.com</p>
-                <p> Git Hub : https://github.com/DanielDCSS </p>
-                
-            </div> <!-- Fechamento da div contato -->
-    
-            <div class="foto">
-                <img src="imags/IMG_3439.JPG" width="238,5" height="318" />
-            </div>
-    
-        </div>
-        <script>
-            window.onload = function() {
-                setTimeout(function() {
-                    document.querySelector('.info').style.opacity = '1';
-                    document.querySelector('.info').style.transform = 'translateY(0)';
-                }, 400);
-                setTimeout(function() {
-                    document.querySelector('.content').style.opacity = '1';
-                    document.querySelector('.content').style.transform = 'translateY(0)';
-                }, 600);
-                setTimeout(function() {
-                    document.querySelector('.publics').style.opacity = '1';
-                    document.querySelector('.publics').style.transform = 'translateY(0)';
-                }, 800);
-                setTimeout(function() {
-                    document.querySelector('.contato').style.opacity = '1';
-                    document.querySelector('.contato').style.transform = 'translateY(0)';
-                }, 1000);
-                setTimeout(function() {
-                    document.querySelector('.foto').style.opacity = '1';
-                    document.querySelector('.foto').style.transform = 'translateY(0)';
-                }, 1200);
-                setTimeout(function() {
-                    document.querySelector('.logo').style.opacity = '1';
-                    document.querySelector('.logo').style.transform = 'translateY(0)';
-                }, 1000);
-            };
-        </script>
-    </body>
+   <div class="container">
+       <header>
+           <h1>Daniel Carlos</h1>
+           <p>Condensed Matter Physics Researcher | Undergraduate student at USP & DFMT</p>
+       </header>
+       <main>
+           <section class="intro">
+               <img src="foto.JPG" alt="Daniel Carlos" class="profile-pic">
+               <p>Hey! I'm Daniel Carlos, a third-year undergraduate student at USP & DFMT, advised by Prof. Gustavo Martini Dalpian.</p>
+               <ul>
+                   <li>Training: Data Scientist</li>
+                   <li>Current Position: CNPq INCT Fellow Student at São Paulo University</li>
+                   <li>Passion: Data Modeling</li>
+               </ul>
+           </section>
+           <p>
+            Hi, my name is Daniel Carlos Souza Santos and I am a physics student. I am very interested in data modeling, and based on that, I took several courses on the subject during my undergraduate studies. These courses enabled me to develop projects in the fields of Quant, Data, and Statistics. One project that particularly stood out to me was Lab Glither. It allowed me to automate the most labor-intensive aspects of some experimental physics courses I took. Developed in collaboration with other students, it was the first project I coordinated, making it particularly memorable for me.
+
+            If you are interested, you can check out my GitHub to see what I have been working on.
+
+            Currently, I am conducting research in material design, aiming to use machine learning to investigate the factors that influence the band-gaps of materials.
+           <br /><br /></p>
+           <section class="latest-posts">
+               <h2>Latest Works</h2>
+               <ul>
+                   <li><strong>July 27, 2024:</strong> <a href="A1.pdf">Analysis of Potential Losses Due to Energy Theft in Brazil</a></li>
+                   <li><strong>Dec 08, 2023:</strong> <a href="A2.pdf">Monte Carlo Method for the Computational Ising Ferromagnet Model for a Two-Dimensional Square Lattice</a></li>
+                   <li><strong>Jun 16, 2023:</strong> <a href="A3.pdf">A Synthesis on Classical Mechanics</a></li>
+               </ul>
+           </section>
+           <section class="publications">
+               <h2>Topics of Study</h2>
+               <ul>
+                   <li><a href="#">KAN: Kolmogorov-Arnold Networks</a></li>
+                   <li><a href="#">Deep Learning in General</a></li>
+                   <li><a href="#">Quantitative Financial Modeling</a></li>
+               </ul>
+           </section>
+           <section class="contact">
+               <h2>Contact Me</h2>
+               <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                   <label for="name">Name:</label>
+                   <input type="text" id="name" name="name" required>
+           
+                   <label for="email">Email:</label>
+                   <input type="email" id="email" name="email" required>
+           
+                   <label for="subject">Subject:</label>
+                   <input type="text" id="subject" name="subject" required>
+           
+                   <label for="message">Message:</label>
+                   <textarea id="message" name="message" rows="4" required></textarea>
+           
+                   <button type="submit">Send</button>
+               </form>
+           </section>
+       </main>
+   </div>
+</body>
 </html>
