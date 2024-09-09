@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal Page</title>
+    <style>
+        body {
+            margin: 0;
+            margin-left: 20px;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 98%;
+            height: 10%;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .header img {
+            height: 4rem;
+        }
+        .content {
+            margin-top: 6rem; /* Adjust this value according to the height of your header */
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .sidebar {
+            position: fixed;
+            top: 6rem;
+            right: 0;
+            width: 8vw;
+            background-color: #333;
+            color: #e8c39e;
+            padding: 1rem;
+            height: calc(100vh - 6rem);
+            border-left: 1px solid #e8c39e;
+            box-sizing: border-box;
+        }
+        .sidebar a {
+            color: #e8c39e;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+        h1, h2, h3, p {
+            width: 80vw;
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        pre {
+            background-color: #333;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-bottom: 1px solid #dee2e6;
+            width: 80vw;
+            overflow: auto;
+            white-space: pre-wrap;
+        }
+        img {
+            height: 15rem;
+            display: block;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .head {
+            color: #fff;
+            font-size: large;
+        }
+        .new{
+            width: 1000px;
+            height: 700px;
+            padding: 0; /* Remove o padding para garantir que o iframe se ajuste ao container */
+            margin: 0; /* Remove a margem para garantir que o iframe se ajuste ao container */
+            box-sizing: border-box;
+        }
+        iframe {
+            width: 100%; /* Ocupa 100% da largura da div */
+            height: 100%; /* Ocupa 100% da altura da div */
+            border: none; /* Remove a borda padrão do iframe */
+            
+        }
+        
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                float: none;
+                width: 100%;
+            }
+
+            .content {
+                float: none;
+                width: 100%;
+            }
+        }
+        
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.sidebar a');
+            KotlinPlayground('.code-blocks-selector', {
+            server: 'https://play.kotlinlang.org',
+            version: '1.8.0'  // Use a versão específica se necessário
+            });
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    links.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/kotlin-playground@1"
+    data-selector="code"
+    data-server="https://play.kotlinlang.org"
+    data-version="1.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+</head>
+<body>
+    <header class="header">
+        <div>
+            <h1 class="head">Daniel Carlos Souza Santos</h1>
+            <p class="head">Nº USP : 13686330</p>
+        </div>
+        <div>
+            <img src="../bras2.png" alt="Usp Logo">
+        </div>
+    </header>
+    <div class="sidebar">
+        <a href="ep1.html">- Ep 1</a>
+        <a href="#ep02">- Ep 2</a>
+        <a href="#ep03">- Ep 3</a>
+        <a href="#ep04">- Ep 4</a>
+        <a href="#ep05">- Ep 5</a>
+    </div>
+    <div class="content">
+        <h1 id="ep02">EP 2</h1>
+        <h2 id="e1">Exercício 1</h2>
+        <h3 id="e1a">Ítem (A)</h3>
+        <p>
+            Conforme o pedido pelo enunciado da lista, ítem (a) desse exercício está disponível <a href="Ep 2.pdf">aqui</a> para ser baixado manuscrito.
+            Nele, basicamente foi utilizado duas vezes a lei das malhas e uma a lei dos nós. A lei dos nós acaba nos levando a \( I_1 = I_2 + I_3 \)
+            A lei das malhas feita nas malhas 1 e 2 indicadas no pdf manuscrito nos levam as equações : 
+            \[
+                24 - 4.7I_1 - 1.8I_3 - 9 - 7.2I_1 = 0 => 11.9I_1 + 1.8I_3 = 15
+            \]
+            \[
+                9 + 1.8I_3  - 5.3I_2 - 5.9 = 0 => 5.3I_2  - 1.8I_3 = 3.1
+            \]
+        </p> 
+        <h3 id="e1b">Ítem (B)</h3>
+        <p>
+            A ideia aqui usada consiste apenas em resolver o sistema pelo método do escalonamento. O pivotamento será feito se necessário,
+            o programa abaixo foi o utilizado para esse fim. <br />
+            O programa abixo armazena a matrix a ser escalonada e exibe ela, pois o Kotlin não tem métodos que automatizam essa exibição.
+        </p>
+        <code class="code-blocks-selector" theme = "darcula" lines = "true">
+            val matrix = arrayOf(
+    doubleArrayOf(0.0, 5.3, -1.8, 3.1),
+    doubleArrayOf(11.9, 0.0, 1.8, 15.0),
+    doubleArrayOf(1.0, -1.0, -1.0, 0.0)
+) 
+fun printMatrix( M : Array<DoubleArray>){ //n é a dimensão da matrix original "Sem o vetor b adicionado"
+    for (linha in M){
+        println(linha.joinToString(separator = "\t"){String.format("%.2f", it)})
+    }
+}
+
+printMatrix(matrix)
+        </code>
+        <p>
+            A eliminação de Gauss será feita aqui abaixo 
+        </p>
+        <code class="code-blocks-selector" theme = "darcula" lines = "true">
+            fun Gauss(M : Array<DoubleArray>){
+                val n_lines = M.size
+                val n_cols = M[0].size
+                for (i in 0 until n_lines) {
+                    var target_row = i // Encontra o maior elemento da matriz para uma coluna (pivô)
+                    for (k in i + 1 until n_lines) {
+                        if (Math.abs(M[k][i]) > Math.abs(M[target_row][i])) {
+                            target_row = k
+                        }
+                    }
+            
+                    // Substitui a linha atual pela do pivô e a do pivô pela atual
+                    if (target_row != i) {
+                        val temp = M[i]
+                        M[i] = M[target_row]
+                        M[target_row] = temp
+                    }
+            
+                    // Eliminação recursiva dos elementos abaixo da diagonal principal
+                    for (k in i + 1 until n_lines) {
+                        val factor = M[k][i] / M[i][i]
+                        for (j in i until n_cols) {
+                            M[k][j] -= factor * M[i][j]
+                        }
+                    }
+                }
+            }
+            Gauss(matrix)
+            printMatrix(matrix)
+        </code>
+        <p>
+            Após fazer a substituição para trás obtemos a resposta do problema. Se quiser conferir copie e cole os notebooks acima na função
+            main do notebook executável no fim da página.
+        </p>
+        <code theme="darcula" class="code-blocks-selector" lines = "true">
+            fun backSubstitution(M: Array<DoubleArray>): DoubleArray {
+                val n_lines = M.size
+                val solutions = DoubleArray(n_lines)
+            
+                for (i in n_lines - 1 downTo 0) {
+                    var sum = M[i][n_lines]
+                    for (j in i + 1 until n_lines) {
+                        sum -= M[i][j] * solutions[j]
+                    }
+                    solutions[i] = sum / M[i][i]
+                }
+            
+                return solutions
+            }
+            backSubstitution(matrix)
+        </code>
+        <h3 id="e1c">Ítem (C)</h3>
+        <p>Aqui abaixo vou permutar as primeiras linhas e fazer a atualização das variáveis do sistema seguindo o método de Jacobi. O programa
+            foi feito conforme o especificado no enunciado, a tabela pode ser consultada no notebook fornecido por email ou rodando o programa
+            no notebook fornecido ao final dessa página.
+        </p>
+        <code theme="darcula" class="code-blocks-selector" lines = "true">
+            val new_matrix = arrayOf(
+        doubleArrayOf(11.9, 0.0, 1.8, 15.0),
+        doubleArrayOf(0.0, 5.3, -1.8, 3.1),
+        doubleArrayOf(1.0, -1.0, -1.0, 0.0)
+    )
+    
+    var entr = doubleArrayOf(1.0, 1.0, 1.0)
+    val new_entr = DoubleArray(entr.size)
+    val difs = DoubleArray(entr.size)
+    
+    // Loop de iteração
+    var iteration = 0
+    do {
+        // Inicialize `difs` a cada iteração
+        difs.fill(0.0)
+        
+        // Calcule novos valores de `new_entr`
+        for (j in new_entr.indices) {
+            var sum = new_matrix[j][new_matrix[j].size - 1] // Valor da constante da equação
+            for (i in new_entr.indices) {
+                if (i != j) {
+                    sum -= new_matrix[j][i] * entr[i]
+                }
+            }
+            new_entr[j] = sum / new_matrix[j][j]
+            difs[j] = Math.abs(new_entr[j] - entr[j])
+        }
+        
+        // Exibir resultados parciais
+        println("Iteração $iteration:")
+        for (i in new_entr.indices) {
+            println("x${i+1} = ${new_entr[i]}")
+        }
+        println("Diferenças: ${difs.joinToString(", ")}")
+        println()
+        
+        // Atualize `entr` com os novos valores
+        System.arraycopy(new_entr, 0, entr, 0, entr.size)
+        
+        // Incrementar o contador de iterações
+        iteration++
+        
+    } while (difs.maxOrNull() ?: 0.0 > 0.001)
+    
+    // Exibir resultados finais
+    println("Solução final após $iteration iterações:")
+    for (i in entr.indices) {
+        println("x${i+1} = ${entr[i]}")
+    }
+        </code>
+        <h3>Ítem (D)</h3>
+        <p>O ítem (D), conforme o (A) será feito no tablet e disponibilizado <a href="Nova Nota.pdf">aqui</a> para checagem. Nele literalmente apenas 
+            peguei a matriz alvo usada no ítem anterior e dividi os elementos respectivos pelos da diagonal principal de cada linha, colocando onde
+            era a diagonal principal zeros.
+        </p>
+        <h3>Ítem (E)</h3>
+        <p> Aqui vai oque foi feito no ítem (D) porém pelo método de Gauss-Sidel. Como o algoritmo é o mesmo, apenas mudando a "ordem de
+            atualização das variáveis" o programa realmente deve tender a estar parecido com o anteriror.
+        </p>
+        <code theme="darcula" class="code-blocks-selector" lines = "true">
+            val new_matrix = arrayOf(
+        doubleArrayOf(11.9, 0.0, 1.8, 15.0),
+        doubleArrayOf(0.0, 5.3, -1.8, 3.1),
+        doubleArrayOf(1.0, -1.0, -1.0, 0.0)
+    )
+    
+    val entr = DoubleArray(new_matrix.size) { 1.0 }
+    val new_entr = DoubleArray(entr.size)
+    val difs = DoubleArray(entr.size)
+    
+    // Loop de iteração
+    var iteration = 0
+    do {
+        // Inicialize `difs` a cada iteração
+        difs.fill(0.0)
+        
+        // Calcule novos valores de `new_entr` usando o método de Gauss-Seidel
+        for (j in new_entr.indices) {
+            var sum = new_matrix[j][new_matrix[j].size - 1] // Valor da constante da equação
+            for (i in new_entr.indices) {
+                if (i != j) {
+                    sum -= new_matrix[j][i] * new_entr[i]
+                }
+            }
+            new_entr[j] = sum / new_matrix[j][j]
+            difs[j] = Math.abs(new_entr[j] - entr[j])
+        }
+        
+        // Exibir resultados parciais
+        println("Iteração $iteration:")
+        for (i in new_entr.indices) {
+            println("x${i+1} = ${new_entr[i]}")
+        }
+        println("Diferenças: ${difs.joinToString(", ")}")
+        println()
+        
+        // Atualize `entr` com os novos valores
+        System.arraycopy(new_entr, 0, entr, 0, entr.size)
+        
+        // Incrementar o contador de iterações
+        iteration++
+        
+    } while (difs.maxOrNull() ?: 0.0 > 0.001)
+    
+    // Exibir resultados finais
+    println("Solução final após $iteration iterações:")
+    for (i in entr.indices) {
+        println("x${i+1} = ${entr[i]}")
+    }
+        </code>
+        <h2> Notebooks para Teste</h2>
+        <p>
+            Caso deseje testar oque foi feito, abaixo vai um notebook executável no qual isso pode ser feito. Esse ep foi feito na estrutura
+            de Kotlin notebooks. Para depurar com ele basta copiar as partes do programa dentro da função main e rodar. <br/ >
+            O progama abaixo é referente ao que foi feito no ítem (b). 
+        </p>
+        <div class="new">
+            <iframe src="https://pl.kotl.in/Xka2CF8Kz?theme=darcula"></iframe>
+        </div>
+        <p>
+            Notebook de teste para o programa do ítem (C)
+        </p>
+        <div class="new">
+            <iframe src="https://pl.kotl.in/zKylgpcgw?theme=darcula"></iframe>
+        </div>
+        <p>
+            Notebook de teste para o programa do ítem (E)
+        </p>
+        <div class="new">
+            <iframe src="https://pl.kotl.in/2ZM4XXYZ5?theme=darcula"></iframe>
+        </div>
+    </div>
+</body>
+</html>

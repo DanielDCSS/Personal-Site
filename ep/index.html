@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 98%;
+            background-color: #333;
+            color: #fff;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .header h1, .header p {
+            margin: 0;
+        }
+        .header .logo {
+            height: 3rem;
+        }
+        .content {
+            margin-top: 5rem; /* Adjust this value according to the height of your header */
+            padding: 1rem;
+            text-align: center;
+        }
+        .content input, .content select {
+            padding: 0.5rem;
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .content button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+        .content button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div>
+            <h1>Daniel Carlos Souza Santos</h1>
+            <p>Nº USP : 13686330</p>
+        </div>
+        <div>
+            <img src="bras2.png" alt="Usp Logo" class="logo">
+        </div>
+    </header>
+    <div class="content">
+        <h1>Eps de Calculo Numérico</h1>
+        <p>Escolha a página:</p>
+        <select id="page-select">
+            <option value="">Selecione uma página</option>
+            <option value="ep1">EP1</option>
+            <option value="ep2">EP2</option>
+            <option value="ep3">EP3</option>
+        </select>
+        <p>Login:</p>
+        <input type="text" placeholder="Seu Login" id="login">
+        <p>Senha:</p>
+        <input type="password" placeholder="Sua Senha" id="password">
+        <p id="welcome-message"></p>
+        <button onclick="handleLogin()">Login</button>
+        <p id="error-message" style="color: #333;"></p>
+    </div>
+    <script>
+        function handleLogin() {
+            const name = document.getElementById('login').value;
+            const password = document.getElementById('password').value;
+            const page = document.getElementById('page-select').value;
+            const log1 = "Monitor1";
+            const passwd1 = "Senha1";
+            const welcomeMessage = document.getElementById('welcome-message');
+            const errorMessage = document.getElementById('error-message');
+
+            if (name === log1 && password === passwd1) {
+                if (page) {
+                    window.location.href = `progs/${page}.html`; // Redirect to the selected page
+                } else {
+                    errorMessage.textContent = 'Por favor, selecione uma página.';
+                    welcomeMessage.textContent = '';
+                }
+            } else {
+                errorMessage.textContent = `Desculpe, mas o login ${name} ou a senha ${password} estão inválidos`;
+                welcomeMessage.textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>
+

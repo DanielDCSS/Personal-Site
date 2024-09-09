@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal Page</title>
+    <style>
+        body {
+            margin: 0;
+            margin-left: 20px;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 98%;
+            height: 10%;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .header img {
+            height: 4rem;
+        }
+        .content {
+            margin-top: 6rem; /* Adjust this value according to the height of your header */
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .sidebar {
+            position: fixed;
+            top: 6rem;
+            right: 0;
+            width: 8vw;
+            background-color: #333;
+            color: #e8c39e;
+            padding: 1rem;
+            height: calc(100vh - 6rem);
+            border-left: 1px solid #e8c39e;
+            box-sizing: border-box;
+        }
+        .sidebar a {
+            color: #e8c39e;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+        h1, h2, h3, p {
+            width: 80vw;
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        pre {
+            background-color: #333;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-bottom: 1px solid #dee2e6;
+            width: 80vw;
+            overflow: auto;
+            white-space: pre-wrap;
+        }
+        img {
+            height: 15rem;
+            display: block;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .head {
+            color: #fff;
+            font-size: large;
+        }
+        .new{
+            width: 600px;
+            height: 600px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                float: none;
+                width: 100%;
+            }
+
+            .content {
+                float: none;
+                width: 100%;
+            }
+        }
+        
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.sidebar a');
+            KotlinPlayground('.code-blocks-selector', {
+            server: 'https://play.kotlinlang.org',
+            version: '1.8.0'  // Use a versão específica se necessário
+            });
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    links.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/kotlin-playground@1"
+    data-selector="code"
+    data-server="https://play.kotlinlang.org"
+    data-version="1.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+</head>
+<body>
+    <header class="header">
+        <div>
+            <h1 class="head">Daniel Carlos Souza Santos</h1>
+            <p class="head">Nº USP : 13686330</p>
+        </div>
+        <div>
+            <img src="../bras2.png" alt="Usp Logo">
+        </div>
+    </header>
+    <div class="sidebar">
+        <a href="#ep01">- Ep 1</a>
+        <a href="ep2.html">- Ep 2</a>
+        <a href="#ep03">- Ep 3</a>
+        <a href="#ep04">- Ep 4</a>
+        <a href="#ep05">- Ep 5</a>
+    </div>
+    <div class="content">
+        <h1 id="ep01">EP 1</h1>
+        <h2 id="ep02">Dependências</h2>
+        <p>Kotlin.math é uma biblioteca que contém os métodos matemáticos exigidos para o ep. Letsplot é uma biblioteca para exportação gráfica</p>
+        <code class="code-blocks-selector" theme="darcula" lines = "true">
+%use lets-plot
+import kotlin.math.pow
+import kotlin.math.cos
+import kotlin.math.sin
+import kotlin.math.sign
+import org.jetbrains.letsPlot.export.ggsave
+import org.jetbrains.letsPlot.geom.geomLine
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.label.xlab
+import org.jetbrains.letsPlot.label.ylab
+import org.jetbrains.letsPlot.scale.scaleXContinuous
+        </code>
+        <h2 id="e1">Exercício 1</h2>
+        <h3 id="e1a">Ítem (A)</h3>
+        <p>Para resolver a equação \( x^{\frac{3}{4}} - cos(x^{2}) = 0 \) vamos dizer que \( x_1 \) é um ponto mais a esquerda 
+            que \( x_2 \) sempre. Seja \( f(x) = x^{\frac{3}{4}} - cos(x^{2}) \). O programa abaixo cria uma função que calcula a média de 2 
+            valores e outra que corresponde a função do enunciado. Plotando a função do enunciado no seu respectivo domínio.</p>
+        <code theme="darcula" class="code-blocks-selector" lines = "true">
+fun target(x: Double): Double {
+    return x.pow(3.0 / 4.0) - cos(x.pow(2.0))
+}
+
+fun x_med(a: Double, b: Double): Double {
+    return (a + b) / 2.0
+}
+
+val xs = (0..300).map { it / 10.0 }
+var ys = xs.map { target(it) }
+
+val data = mapOf(
+    "x" to xs,
+    "y" to ys
+)
+
+val plot = letsPlot(data) + geomLine {
+    x = "x"
+    y = "y"
+} + ggtitle("Plot da função target(x)") + xlab("x") + ylab("target(x)")
+plot
+</code>
+        <img src="g1.png" alt="Gráfico 1">
+        <code theme="darcula" class="code-blocks-selector" lines = "true">
+var x_1: Double = 0.0
+var x_2: Double = 1.0
+val err = 0.000001
+// Essa parte do código inicializa x1 e x2. Após atualiza x1 e xx2 conforme indicado pelo método da bissecção
+while (Math.abs(x_1 - x_2) > err) {
+    if (sign(target(x_1)) == sign(target(x_med(x_1, x_2)))) {
+        x_1 = x_med(x_1, x_2)
+    } else {
+        x_2 = x_med(x_1, x_2)
+    }
+    println("x1: $x_1")
+    println("x2: $x_2")
+    println("xMed: ${x_med(x_1, x_2)}")
+}
+</code>
+        <p>Não existem outras raizes pois a função não é devinida para números negativos e é crescente na medida que x cresce. <br /> Resposta encontrada: 0.7743964195251465</p>
+        <h3 id="e1b">Ítem B</h3>
+        <p>A derivada da função do ítem (a) é : \(f'(x) = \frac{3}{4}x^{\frac{-1}{4}} + 2x*sen(x^{2})\), a qual foi calculada 
+            analiticamente. Para o método de Newton vamos usar o programa a seguir cujo o algoritmo replica 
+            exatamente \(x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\) parando apenas quando \(f(x_{n+1})\) está convenientemente 
+            próxima de 0. Ao final pode-se notar que ambos os métodos convergiram para valores próximos.</p>
+        <code theme="darcula" lines = "true">
+fun target_line(x: Double): Double {
+    return (3.0 / 4.0) * x.pow(-1.0 / 4.0) + 2 * x * sin(x.pow(2.0))
+}
+
+var x_n: Double = 1.0 // tem que ser diferente de 0
+var x_j: Double = 0.0 // x_n+1
+
+while (Math.abs(target(x_n)) > err) {
+    if (x_n > err) {
+        x_j = x_n - target(x_n) / target_line(x_n)
+        println("xn = ${x_n} e x_n+1 = ${x_j} \n")
+        x_n = x_j
+    } else {
+        break
+    }
+}
+</code>
+        <p>Resposta encontrada : 0.7743966632733174</p>
+        <h3 id="e1c">Ítem C</h3>
+        <p>Como \(V(r) = \frac{-e^2}{4\\pi \\epsilon_0 r} + V_0e^{\frac{-r}{r_0}}\) e também \(F(r) = \frac{-e^2}{4\\pi \\epsilon_0 r^2} + \frac{V_0}{r_o}e^{\frac{-r}{r_0}} \) os gráficos do potêncial e da força, pedidos no ítem \(I\) ficam :</p>
+        <code theme="darcula" class="code-blocks-selector" lines = "true">
+fun potencial(x: Double): Double {
+    return (-14.4 / x) + 1380 * exp(-x / 0.328)
+}
+
+fun force(x: Double): Double {
+    return (-14.4 / x.pow(2.0)) + (1380 / 0.328) * exp(-x / 0.328)
+}
+
+var ys2 = xs.map { force(it) }
+ys = xs.map { potencial(it) }
+
+val data = mapOf(
+    "x" to xs,
+    "y" to ys,
+    "y2" to ys2
+)
+
+val plot = letsPlot(data) + geomLine(color = "dark_green", alpha = .7) {
+    x = "x"
+    y = "y"
+} + geomLine(color = "red", alpha = .7) {
+    x = "x"
+    y = "y2"
+} + ggtitle("Plot das funções Potencial(x) e Force(x), X em Angstrong e Potencial em eV") + ggsize(700, 500) + xlab("x") 
++ ylab("potencial(x)") + scaleFillBrewer(type = "seq") + theme(panelGridMajorX = "blank") + scaleXContinuous()
+plot
+
+// Distancias em Angstrong e potenciais em eletron-volts
+</code>
+        <img src="g2.png" alt="Gráfico 2">
+        <p>A função Potencial, em verde, foi plotada ao lado da função Força em vermelho. <br /> Potencial (em verde) <br /> Força (em vermelho) <br /> Abaixo vem uma implementação literal do método das secantes. Ele visa resolver a parte \$II\$ do ítem c.</p>
+        <code theme="darcula" mode="kotlin" lines = "true" class="code-blocks-selector">
+var x_a: Double = 1.0 // x_n+1
+var x_b: Double = 2.0 // x_n
+var x_c: Double = 3.0 // x_n-1
+// err é um número arbitrariamente perto de 0, o qual nesse caso servirá para não fazer a segurança do programa.
+while (Math.abs(force(x_a)) > err) {
+    if (x_a > err && x_b > err && x_c > err) {
+        x_a = x_b - (force(x_b) * (x_b - x_c)) / (force(x_b) - force(x_c))
+        x_c = x_b
+        x_b = x_a
+        println("x_a = ${x_a}, x_b = ${x_b}, x_c = ${x_c}")
+    } else {
+        break
+    }
+} // as unidades aqui usadas foram as mesmas indicadas no programa. (ev e Å)
+</code>
+        <p>Resposta encontrada : 2.4500072105655226 Å</p>
+        <p>
+            Caso deseje testar oque foi feito, abaixo vai um notebook executável no qual isso pode ser feito. Esse ep foi feito na estrutura
+            de Kotlin notebooks, a célula abaixo não contém as dependências usadas, porém pode ser usada para debugar erros de lógica e do 
+            programa fornecido.
+        </p>
+        <div class="new">
+            <iframe src="https://pl.kotl.in/x3yn7G45R?theme=darcula"></iframe>
+        </div>
+    </div>
+</body>
+</html>
